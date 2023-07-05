@@ -1,0 +1,251 @@
+:root{
+    --azulescuro: #161B26;
+    --cinza: #666666;
+    --azulclaro: #00A3FF;
+    --branco: #ffffff;
+    --azul:#22262F;
+}
+
+body{
+    margin: 0;
+    font-family: 'Raleway', sans-serif;
+    background-color: var(--azulescuro);
+}
+
+.container{
+    display: flex;
+}
+
+.sidebar{
+    background-color: #22262F;
+    max-width: 343px;
+    width: 25%;
+    height: 100vh;
+    padding: 0 15px;
+    box-sizing: border-box; /* IMPORTANTE!!! sempre colocar ele ajuda com o padding para que o widht nao cresca */
+}
+
+.logo{
+    margin-top: 65px;
+    display: flex;
+    justify-content: center;
+
+}
+
+.menu-sidebar ul{
+    list-style-type: none;
+    
+    padding: 0;
+}
+
+.menu-sidebar a{
+    display: block; /* para o link seguir o espaço todo quando passar o mouse */
+    padding-top: 20px;
+    text-decoration: none;
+    font-size: 16px;
+    color: #ffff;
+    border: none;
+    border-bottom: 1px solid #161B26;
+}
+
+.menu-sidebar a:hover{
+    color: var(--azulclaro);
+}
+
+.menu-sidebar a::after{
+    content: "";
+    display: block;
+    width: 0;
+    height: 2px;
+    background-image: linear-gradient(to right, #34a6d3, #00a3ff);
+    margin-top: 20px;
+    transition: 0.4s;
+}
+
+.menu-sidebar a:hover::after{
+    width: 100%;
+}
+
+
+.content{
+    flex-grow: 1; /* flex grow é para ocupar a area que faltava quando a pagina for divida ao meio ou qualquer proporção */
+    height: 100vh;
+    padding: 0 15px;
+    display: flex; /* para o footer ficar na posiçao certa */
+    flex-direction: column; /* para o footer ficar na posiçao certa */
+}
+
+.header{
+    height: 64px;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    gap: 50px;
+    border-bottom: 1px solid var(--cinza);
+}
+
+.header a{
+    color: var(--branco);
+    font-size: 16px;
+}
+
+.main{
+    flex-grow: 1; /* para o footer ficar na posiçao certa */
+    /*height: calc(100vh - 130px); outra forma de se colocar o footer no lugar !! 130px é a soma do header com o footer mais as bordas */
+}
+
+.main h1{
+    color:var(--branco);
+    font-size: 36px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.main p{
+   color: var(--branco);
+   font-size: 16px;
+}
+
+.footer{
+    width: 100%;
+    border-top: 1px solid var(--cinza);
+    height: 64px;
+}
+
+.footer a{
+    font-size: 14px;
+    color: var(--cinza);
+    display: flex;
+    justify-content:center;
+    padding-top: 25px;
+   
+}
+
+@media (max-width: 1279px){
+    
+    .container{
+       flex-direction: column; 
+    }
+
+    .sidebar{
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        padding: 25px 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items:center ;
+    }
+
+    .logo{
+        margin: 0;
+      
+    }
+
+    .bar{
+        width: 40px;
+        height: 3px;
+        margin-bottom: 3px;
+        background-color: #ffffff;
+    }
+
+    .menu-sidebar{
+        position: absolute;
+        width: 100%;
+        left: 0;
+        top: 80px;
+        background-color: #22262F;
+        top: 80px;
+        padding:  0 10px;
+        box-sizing: border-box;
+
+    }
+
+    .menu-sidebar-show{
+        display: block;
+    }
+
+    .header{
+        justify-content: center;
+    }
+    
+    .content{
+        min-height: calc(100vh - 80px);
+
+    }
+
+    .retangulo .btn{
+        display: block;
+        margin-bottom: 5px;
+    }
+}
+
+.bg-modal{
+    background-color: rgba(0, 0, 0, 0.295);
+    margin: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 1000;
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    backdrop-filter:blur(3px); /* fundo embaçado */
+    visibility: hidden; /* esconder ate que o usuario clique no botao */
+}
+
+.modal-show{
+  /* visibility: visible; */ 
+}
+
+.retangulo{
+    background-color: white;
+    width: 80%;
+    margin: 0;
+    max-width: 600px;
+    height: 300px;
+    border-radius: 10px;
+    position: relative;
+    box-shadow: 3px 3px 5px #00A3FF;  /* sombra horizontal - sombra vertical - suavidade */ 
+}
+
+.retangulo h3{
+    color:var(--azulescuro);
+    font-size: 32px;
+    font-weight: bold;
+    text-align: center;
+    margin: 91px 0 30px;
+}    
+
+.retangulo button{
+    border-radius: 5px;
+    width: 200px;
+    height: 50px;
+    font-size: 16px;
+    color: #FFFEFE;
+    display: inline-block;
+    border: 0;
+    
+}
+
+.btn-1{
+    background-color: #00A3FF;
+    margin-left: 82px;
+    margin-right: 35px;
+}
+
+.btn-2{
+    background-color:#940000;
+}
+
+.retangulo a{
+    color:#FFFFFF;
+    text-decoration: none;
+    font-size: 32px;
+    font-weight: bold;
+    position: absolute;
+    right:-22px;
+    top: -48px;
+    width: 21px;
+    height: 38px;
+}
